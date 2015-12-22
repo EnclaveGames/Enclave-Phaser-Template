@@ -43,7 +43,7 @@ EPT.MainMenu.prototype = {
 			EPT._soundClick.play();
 		}
 		window.top.location.href = 'http://enclavegames.com/';
-	}
+	},
 	clickStart: function() {
 		if(EPT._audioStatus) {
 			EPT._soundClick.play();
