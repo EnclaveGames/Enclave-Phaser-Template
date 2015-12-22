@@ -1,32 +1,4 @@
 var EPT = {
-	_initAudio: function(game) {
-		storageAPI.initUnset('EPT-audio', true);
-		EPT._audioStatus = storageAPI.get('EPT-audio');
-		EPT._soundClick = game.add.audio('audio-click');
-		// EPT._soundMusic = game.add.audio('audio-theme',1,true);
-		if(EPT._audioStatus) {
-			EPT._audioOffset = 0;
-			// EPT._soundMusic.play('',0,1,true);
-		}
-		else {
-			EPT._audioOffset = 4;
-		}
-		game.buttonAudio.setFrames(EPT._audioOffset+1, EPT._audioOffset+0, EPT._audioOffset+2);
-	},
-	_manageAudio: function(game) {
-		EPT._audioStatus =! EPT._audioStatus;
-		storageAPI.set('EPT-audio',EPT._audioStatus);
-		if(EPT._audioStatus) {
-			EPT._audioOffset = 0;
-			// EPT._soundMusic.play('',0,1,true);
-			// EPT._soundClick.play();
-		}
-		else {
-			EPT._audioOffset = 4;
-			// EPT._soundMusic.stop();
-		}
-		game.buttonAudio.setFrames(EPT._audioOffset+1, EPT._audioOffset+0, EPT._audioOffset+2);
-	},
 	_manageAudio: function(mode, game) {
 		if(mode == 'init') {
 			storageAPI.initUnset('EPT-audio', true);
