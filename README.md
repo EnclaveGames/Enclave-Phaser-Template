@@ -8,7 +8,7 @@ It is my own point of view on building a structure for HTML5 games. If you think
 
 ### Features:
 
-- loading resources
+- fully responsive
 - main menu with buttons
 - story and achievements screens
 - audio management
