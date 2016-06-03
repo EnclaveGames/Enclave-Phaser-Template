@@ -22,6 +22,8 @@ EPT.MainMenu.prototype = {
 		textHighscore.anchor.set(0.5,1);
 
 		EPT._manageAudio('init',this);
+		// Turn the music off at the start:
+		EPT._manageAudio('off',this);
 
 		buttonStart.x = this.world.width+buttonStart.width+20;
 		this.add.tween(buttonStart).to({x: this.world.width-20}, 500, Phaser.Easing.Exponential.Out, true);

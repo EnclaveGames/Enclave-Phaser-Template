@@ -1,17 +1,29 @@
 var EPT = {
 	_manageAudio: function(mode, game) {
-		if(mode == 'init') {
-			storageAPI.initUnset('EPT-audio', true);
-			EPT._audioStatus = storageAPI.get('EPT-audio');
-			EPT._soundClick = game.add.audio('audio-click');
-			if(!EPT._soundMusic) {
-				EPT._soundMusic = game.add.audio('audio-theme',1,true);
-				EPT._soundMusic.volume = 0.5;
+		switch(mode) {
+			case 'init': {
+				storageAPI.initUnset('EPT-audio', true);
+				EPT._audioStatus = storageAPI.get('EPT-audio');
+				EPT._soundClick = game.add.audio('audio-click');
+				if(!EPT._soundMusic) {
+					EPT._soundMusic = game.add.audio('audio-theme',1,true);
+					EPT._soundMusic.volume = 0.5;
+				}
+				break;
 			}
-		}
-		else if(mode == 'switch') {
-			EPT._audioStatus =! EPT._audioStatus;
-			storageAPI.set('EPT-audio',EPT._audioStatus);
+			case 'on': {
+				EPT._audioStatus = true;
+				break;
+			}
+			case 'off': {
+				EPT._audioStatus = false;
+				break;
+			}
+			case 'switch': {
+				EPT._audioStatus =! EPT._audioStatus;
+				break;
+			}
+			default: {}
 		}
 		if(EPT._audioStatus) {
 			EPT._audioOffset = 0;
@@ -27,6 +39,7 @@ var EPT = {
 				EPT._soundMusic.stop();
 			}
 		}
+		storageAPI.set('EPT-audio',EPT._audioStatus);
 		game.buttonAudio.setFrames(EPT._audioOffset+1, EPT._audioOffset+0, EPT._audioOffset+2);
 	}
 };
