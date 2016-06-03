@@ -2,8 +2,8 @@ var EPT = {
 	_manageAudio: function(mode, game) {
 		switch(mode) {
 			case 'init': {
-				storageAPI.initUnset('EPT-audio', true);
-				EPT._audioStatus = storageAPI.get('EPT-audio');
+				EPT.Storage.initUnset('EPT-audio', true);
+				EPT._audioStatus = EPT.Storage.get('EPT-audio');
 				EPT._soundClick = game.add.audio('audio-click');
 				if(!EPT._soundMusic) {
 					EPT._soundMusic = game.add.audio('audio-theme',1,true);
@@ -39,7 +39,7 @@ var EPT = {
 				EPT._soundMusic.stop();
 			}
 		}
-		storageAPI.set('EPT-audio',EPT._audioStatus);
+		EPT.Storage.set('EPT-audio',EPT._audioStatus);
 		game.buttonAudio.setFrames(EPT._audioOffset+1, EPT._audioOffset+0, EPT._audioOffset+2);
 	}
 };

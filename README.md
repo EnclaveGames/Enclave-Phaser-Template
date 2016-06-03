@@ -14,8 +14,4 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - audio management
 - highscore management
 - paused and game over states
-
-### Todo:
-
-- storage as a Phaser plugin
-- intro tutorial
+- localStorage Phaser plugin

@@ -4,8 +4,11 @@ EPT.MainMenu.prototype = {
 		// this.add.sprite(0, 0, 'background');
 		var title = this.add.sprite(this.world.width*0.5, (this.world.height-100)*0.5, 'title');
 		title.anchor.set(0.5);
-		storageAPI.initUnset('EPT-highscore', 0);
-		var highscore = storageAPI.get('EPT-highscore') || 0;
+
+		EPT.Storage = this.game.plugins.add(Phaser.Plugin.Storage);
+
+		EPT.Storage.initUnset('EPT-highscore', 0);
+		var highscore = EPT.Storage.get('EPT-highscore') || 0;
 
 		var buttonEnclave = this.add.button(20, 20, 'logo-enclave', this.clickEnclave, this);
 		var buttonStart = this.add.button(this.world.width-20, this.world.height-20, 'button-start', this.clickStart, this, 1, 0, 2);

@@ -131,7 +131,7 @@ EPT.Game.prototype = {
 		this.screenGameoverGroup.visible = true;
 		this.currentTimer.stop();
 		this.screenGameoverScore.setText('Score: '+this._score);
-		storageAPI.setHighscore('EPT-highscore',this._score);
+		EPT.Storage.setHighscore('EPT-highscore',this._score);
 	},
 	addPoints: function() {
 		this._score += 10;
