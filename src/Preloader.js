@@ -39,6 +39,7 @@ EPT.Preloader.resources = {
 		['button-back', 'img/button-back.png', 70, 70]
 	],
 	'audio': [
-		['audio-click', ['sfx/audio-button.m4a','sfx/audio-button.mp3','sfx/audio-button.ogg']]
+		['audio-click', ['sfx/audio-button.m4a','sfx/audio-button.mp3','sfx/audio-button.ogg']],
+		['audio-theme', ['sfx/music-bitsnbites-liver.m4a','sfx/music-bitsnbites-liver.mp3','sfx/music-bitsnbites-liver.ogg']]
 	]
 };
