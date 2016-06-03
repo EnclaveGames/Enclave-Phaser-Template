@@ -130,7 +130,8 @@ EPT.Game.prototype = {
 	stateGameover: function() {
 		this.screenGameoverGroup.visible = true;
 		this.currentTimer.stop();
-		this.screenGameoverScore.setText('Score: '+this._score);
+		// this.screenGameoverScore.setText('Score: '+this._score);
+		this.gameoverScoreTween();
 		EPT.Storage.setHighscore('EPT-highscore',this._score);
 	},
 	addPoints: function() {
@@ -142,6 +143,21 @@ EPT.Game.prototype = {
 			{ font: "48px Arial", fill: "#000", stroke: "#FFF", strokeThickness: 10 });
 		pointsAdded.anchor.set(0.5, 0.5);
 		this.add.tween(pointsAdded).to({ alpha: 0, y: randY-50 }, 1000, Phaser.Easing.Linear.None, true);
+	},
+	gameoverScoreTween: function() {
+		this.screenGameoverScore.setText('Score: 0');
+		if(this._score) {
+			this.tweenedPoints = 0;
+			var pointsTween = this.add.tween(this);
+			pointsTween.to({ tweenedPoints: this._score }, 1000, Phaser.Easing.Linear.None, true, 500);
+			pointsTween.onUpdateCallback(function(){
+				this.screenGameoverScore.setText('Score: '+Math.floor(this.tweenedPoints));
+			}, this);
+			pointsTween.onComplete.addOnce(function(){
+				this.screenGameoverScore.setText('Score: '+this._score);
+			}, this);
+			pointsTween.start();
+		}
 	},
 	clickAudio: function() {
 		if(!EPT._audioStatus) {
