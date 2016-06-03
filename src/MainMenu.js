@@ -11,6 +11,7 @@ EPT.MainMenu.prototype = {
 		var highscore = EPT.Storage.get('EPT-highscore') || 0;
 
 		var buttonEnclave = this.add.button(20, 20, 'logo-enclave', this.clickEnclave, this);
+		var buttonBeer = this.add.button(25, 130, 'button-beer', this.clickBeer, this);
 		var buttonStart = this.add.button(this.world.width-20, this.world.height-20, 'button-start', this.clickStart, this, 1, 0, 2);
 		buttonStart.anchor.set(1);
 
@@ -34,6 +35,8 @@ EPT.MainMenu.prototype = {
 		this.add.tween(this.buttonAudio).to({y: 20}, 500, Phaser.Easing.Exponential.Out, true);
 		buttonEnclave.x = -buttonEnclave.width-20;
 		this.add.tween(buttonEnclave).to({x: 20}, 500, Phaser.Easing.Exponential.Out, true);
+		buttonBeer.x = -buttonBeer.width-25;
+		this.add.tween(buttonBeer).to({x: 25}, 500, Phaser.Easing.Exponential.Out, true, 100);
 		buttonAchievements.y = this.world.height+buttonAchievements.height+20;
 		this.add.tween(buttonAchievements).to({y: this.world.height-20}, 500, Phaser.Easing.Exponential.Out, true);
 	},
@@ -48,6 +51,12 @@ EPT.MainMenu.prototype = {
 			EPT._soundClick.play();
 		}
 		window.top.location.href = 'http://enclavegames.com/';
+	},
+	clickBeer: function() {
+		if(!EPT._audioStatus) {
+			EPT._soundClick.play();
+		}
+		window.top.location.href = 'https://www.paypal.me/end3r';
 	},
 	clickStart: function() {
 		if(EPT._audioStatus) {
