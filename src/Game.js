@@ -29,6 +29,9 @@ EPT.Game.prototype = {
 		this.currentTimer.start();
 
 		this.initUI();
+
+		this.camera.resetFX();
+		this.camera.flash(0x000000, 500, false);
 	},
 	initUI: function() {
 		this.buttonPause = this.add.button(this.world.width-20, 20, 'button-pause', this.managePause, this, 1, 0, 2);
@@ -143,6 +146,8 @@ EPT.Game.prototype = {
 			{ font: "48px Arial", fill: "#000", stroke: "#FFF", strokeThickness: 10 });
 		pointsAdded.anchor.set(0.5, 0.5);
 		this.add.tween(pointsAdded).to({ alpha: 0, y: randY-50 }, 1000, Phaser.Easing.Linear.None, true);
+
+		this.camera.shake(0.01, 100, true, Phaser.Camera.SHAKE_BOTH, true);
 	},
 	gameoverScoreTween: function() {
 		this.screenGameoverScore.setText('Score: 0');

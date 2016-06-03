@@ -39,6 +39,8 @@ EPT.MainMenu.prototype = {
 		this.add.tween(buttonBeer).to({x: 25}, 500, Phaser.Easing.Exponential.Out, true, 100);
 		buttonAchievements.y = this.world.height+buttonAchievements.height+20;
 		this.add.tween(buttonAchievements).to({y: this.world.height-20}, 500, Phaser.Easing.Exponential.Out, true);
+
+		this.camera.flash(0x000000, 500, false);
 	},
 	clickAudio: function() {
 		if(!EPT._audioStatus) {
@@ -62,7 +64,10 @@ EPT.MainMenu.prototype = {
 		if(EPT._audioStatus) {
 			EPT._soundClick.play();
 		}
-		this.game.state.start('Story');
+		this.camera.fade(0x000000, 200, false);
+		this.time.events.add(200, function() {
+			this.game.state.start('Story');
+		}, this);
 	},
 	clickAchievements: function() {
 		if(EPT._audioStatus) {

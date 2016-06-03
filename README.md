@@ -17,6 +17,7 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - localStorage Phaser plugin
 - tweens and animations
 - particle emitters
+- new camera effects: shake, flash, fade
 
 ### Beer time!
 

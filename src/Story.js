@@ -8,11 +8,16 @@ EPT.Story.prototype = {
 		buttonContinue.x = this.world.width+buttonContinue.width+20;
 		
 		this.add.tween(buttonContinue).to({x: this.world.width-20}, 500, Phaser.Easing.Exponential.Out, true);
+
+		this.camera.flash(0x000000, 500, false);
 	},
 	clickContinue: function() {
 		if(EPT._audioStatus) {
 			EPT._soundClick.play();
 		}
-		this.game.state.start('Game');
+		this.camera.fade(0x000000, 200, false);
+		this.time.events.add(200, function() {
+			this.game.state.start('Game');
+		}, this);
 	}
 };
