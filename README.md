@@ -21,4 +21,4 @@ It is my own point of view on building a structure for HTML5 games. If you think
 
 [![Buy me a beer!](https://enclavegames.github.io/Enclave-Phaser-Template/img/banner-beer.png)](https://www.paypal.me/end3r)
 
-If you like what I'm doing and gonna use the template in your project, or just appreciate sharing the code in the open, you can say "thank you" by buying me a beer. Cheers!
+If you like what I'm doing and gonna use the template in your project, or just appreciate sharing the code in the open, you can say "thank you" by <a href="https://www.paypal.me/end3r">buying me a beer</a>. Cheers!
