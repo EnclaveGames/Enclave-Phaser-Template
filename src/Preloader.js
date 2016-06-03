@@ -27,7 +27,8 @@ EPT.Preloader.resources = {
 		['logo-enclave', 'img/logo-enclave.png'],
 		['clickme', 'img/clickme.png'],
 		['overlay', 'img/overlay.png'],
-		['button-beer', 'img/button-beer.png']
+		['button-beer', 'img/button-beer.png'],
+		['particle', 'img/particle.png']
 	],
 	'spritesheet': [
 		['button-start', 'img/button-start.png', 180, 180],

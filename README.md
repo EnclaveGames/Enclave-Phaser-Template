@@ -16,6 +16,7 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - paused and game over states
 - localStorage Phaser plugin
 - tweens and animations
+- particle emitters
 
 ### Beer time!
 
