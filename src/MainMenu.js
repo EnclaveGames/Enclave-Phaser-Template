@@ -43,36 +43,26 @@ EPT.MainMenu.prototype = {
 		this.camera.flash(0x000000, 500, false);
 	},
 	clickAudio: function() {
-		if(!EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		EPT._manageAudio('switch',this);
 	},
 	clickEnclave: function() {
-		if(!EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		window.top.location.href = 'http://enclavegames.com/';
 	},
 	clickBeer: function() {
-		if(!EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		window.top.location.href = 'https://www.paypal.me/end3r';
 	},
 	clickStart: function() {
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		this.camera.fade(0x000000, 200, false);
 		this.time.events.add(200, function() {
 			this.game.state.start('Story');
 		}, this);
 	},
 	clickAchievements: function() {
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		this.game.state.start('Achievements');
 	}
 };

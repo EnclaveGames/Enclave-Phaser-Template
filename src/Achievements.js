@@ -10,9 +10,7 @@ EPT.Achievements.prototype = {
 		this.add.tween(buttonBack).to({x: this.world.width-20}, 500, Phaser.Easing.Exponential.Out, true);
 	},
 	clickBack: function() {
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		this.game.state.start('MainMenu');
 	}
 };

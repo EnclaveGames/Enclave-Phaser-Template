@@ -111,9 +111,7 @@ EPT.Game.prototype = {
 	},
 	managePause: function() {
 		this.gamePaused =! this.gamePaused;
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		if(this.gamePaused) {
 			this.stateStatus = 'paused';
 		}
@@ -180,15 +178,11 @@ EPT.Game.prototype = {
 		emitter.start(false, lifespan, frequency, number);
 	},
 	clickAudio: function() {
-		if(!EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		EPT._manageAudio('switch',this);
 	},
 	stateRestart: function() {
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		this.screenGameoverGroup.visible = false;
 		this.gamePaused = false;
 		this.runOnce = false;
@@ -197,9 +191,7 @@ EPT.Game.prototype = {
 		this.state.restart(true);
 	},
 	stateBack: function() {
-		if(EPT._audioStatus) {
-			EPT._soundClick.play();
-		}
+		EPT._playAudio('click');
 		this.screenGameoverGroup.visible = false;
 		this.gamePaused = false;
 		this.runOnce = false;
