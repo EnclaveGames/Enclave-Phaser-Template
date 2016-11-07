@@ -14,7 +14,7 @@ EPT.Story.prototype = {
 	clickContinue: function() {
 		EPT._playAudio('click');
 		this.camera.fade(0x000000, 200, false);
-		this.time.events.add(200, function() {
+		this.camera.onFadeComplete.add(function(){
 			this.game.state.start('Game');
 		}, this);
 	}
