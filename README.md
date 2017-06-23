@@ -19,9 +19,9 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - particle emitters
 - new camera effects: shake, flash, fade
 
-### License
+### License:
 
-License: CC BY-SA 3.0 - see License.txt for details.
+The license in use is CC BY-SA 3.0 - see License.txt for details.
 
 ### Beer time!
 
