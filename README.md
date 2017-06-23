@@ -19,6 +19,10 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - particle emitters
 - new camera effects: shake, flash, fade
 
+### License
+
+License: CC BY-SA 3.0 - see License.txt for details.
+
 ### Beer time!
 
 [![Buy me a beer!](https://enclavegames.github.io/Enclave-Phaser-Template/img/banner-beer.png)](https://www.paypal.me/end3r)
