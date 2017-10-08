@@ -9,12 +9,14 @@ EPT.Game.prototype = {
 		var fontGameplay = { font: "32px Arial", fill: "#000" };
 		var textGameplay = this.add.text(100, 75, 'Gameplay screen', fontGameplay);
 
-		var buttonDummy = this.add.button(this.world.width*0.5, this.world.height*0.5, 'clickme', this.addPoints, this);
-		buttonDummy.anchor.set(0.5,0.5);
-		buttonDummy.alpha = 0;
-		buttonDummy.scale.set(0.1);
-		this.add.tween(buttonDummy).to({alpha: 1}, 1000, Phaser.Easing.Exponential.Out, true);
-		this.add.tween(buttonDummy.scale).to({x: 1, y: 1}, 1000, Phaser.Easing.Exponential.Out, true);
+		
+		
+		this.buttonDummy = this.add.button(this.world.width*0.5, this.world.height*0.5, 'clickme', this.addPoints, this);
+		this.buttonDummy.anchor.set(0.5,0.5);
+		this.buttonDummy.alpha = 0;
+		this.buttonDummy.scale.set(0.1);
+		this.add.tween(this.buttonDummy).to({alpha: 1}, 1000, Phaser.Easing.Exponential.Out, true);
+		this.add.tween(this.buttonDummy.scale).to({x: 1, y: 1}, 1000, Phaser.Easing.Exponential.Out, true);
 
 		this.currentTimer = game.time.create();
 		this.currentTimer.loop(Phaser.Timer.SECOND, function() {
@@ -123,10 +125,12 @@ EPT.Game.prototype = {
 	statePlaying: function() {
 		this.screenPausedGroup.visible = false;
 		this.currentTimer.resume();
+		this.buttonDummy.exists=true;
 	},
 	statePaused: function() {
 		this.screenPausedGroup.visible = true;
 		this.currentTimer.pause();
+		this.buttonDummy.exists=false;
 	},
 	stateGameover: function() {
 		this.screenGameoverGroup.visible = true;
@@ -134,6 +138,7 @@ EPT.Game.prototype = {
 		// this.screenGameoverScore.setText('Score: '+this._score);
 		this.gameoverScoreTween();
 		EPT.Storage.setHighscore('EPT-highscore',this._score);
+		this.buttonDummy.exists=false;
 	},
 	addPoints: function() {
 		this._score += 10;
