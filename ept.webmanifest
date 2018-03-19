@@ -1,0 +1,51 @@
+{
+    "name": "Enclave Phaser Template",
+    "short_name": "EPT",
+    "description": "Mobile template for HTML5 games created using the Phaser game engine.",
+    "icons": [
+        {
+            "src": "img/icons/icon-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-168.png",
+            "sizes": "168x168",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "theme_color": "#DECCCC",
+    "background_color": "#CCCCCC"
+}

@@ -4,7 +4,6 @@ var EPT = {
 			case 'init': {
 				EPT.Storage.initUnset('EPT-audio', true);
 				EPT._audioStatus = EPT.Storage.get('EPT-audio');
-				// EPT._soundClick = game.add.audio('audio-click');
 				EPT._sound = [];
 				EPT._sound['click'] = game.add.audio('audio-click');
 				if(!EPT._soundMusic) {

@@ -17,7 +17,15 @@ It is my own point of view on building a structure for HTML5 games. If you think
 - localStorage Phaser plugin
 - tweens and animations
 - particle emitters
-- new camera effects: shake, flash, fade
+- camera effects: shake, flash, fade
+
+### PWA-ready:
+
+The template now have Progressive Web App (PWA) support, turned off by default (see enablePWA variable in start.js file):
+
+- manifest file for Add to Home Screen feature
+- Service Worker for offline use
+- notifications template
 
 ### License:
 
