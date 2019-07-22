@@ -2,7 +2,7 @@
 
 Fully mobile responsive, portrait and landscape compatible template for **HTML5 games** written using the [Phaser](http://phaser.io/) game engine. See it online at: [http://enclavegames.github.io/Enclave-Phaser-Template/](http://enclavegames.github.io/Enclave-Phaser-Template/)
 
-![Enclave Phaser Template](https://enclavegames.github.io/Enclave-Phaser-Template/img/enclave-phaser-template.png)
+![Enclave Phaser Template](https://raw.githubusercontent.com/EnclaveGames/Enclave-Phaser-Template/v2/img/enclave-phaser-template.png)
 
 It is my own point of view on building a structure for HTML5 games. If you think something can be done better feel free to send the pull request.
 
@@ -33,6 +33,6 @@ The license in use is CC BY-SA 3.0 - see License.txt for details.
 
 ### Beer time!
 
-[![Buy me a beer!](https://enclavegames.github.io/Enclave-Phaser-Template/img/banner-beer.png)](https://www.paypal.me/end3r)
+[![Buy me a beer!](https://raw.githubusercontent.com/EnclaveGames/Enclave-Phaser-Template/v2/img/banner-beer.png)](https://www.paypal.me/end3r)
 
 If you like what I'm doing and gonna use the template in your project, or just appreciate sharing the code in the open, you can say "thank you" by <a href="https://www.paypal.me/end3r">buying me a beer</a>. Cheers!
