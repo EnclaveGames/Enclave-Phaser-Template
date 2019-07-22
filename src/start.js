@@ -1,17 +1,4 @@
-var game = new Phaser.Game(960, 640, Phaser.AUTO);
 var enablePWA = false;
-var states = {
-	'Boot': EPT.Boot,
-	'Preloader': EPT.Preloader,
-	'MainMenu': EPT.MainMenu,
-	'Achievements': EPT.Achievements,
-	'Story': EPT.Story,
-	'Game': EPT.Game
-};
-for(var state in states)
-	game.state.add(state, states[state]);
-game.state.start('Boot');
-
 if(enablePWA) {
 	// SERVICE WORKER
 	if('serviceWorker' in navigator) {
@@ -24,10 +11,9 @@ if(enablePWA) {
 		}
 	});
 	function exampleNotification() {
-		var randomItem = Math.floor(Math.random()*games.length);
-		var notifTitle = games[randomItem].name;
-		var notifBody = 'Created by '+games[randomItem].author+'.';
-		var notifImg = 'data/img/'+games[randomItem].slug+'.jpg';
+		var notifTitle = 'Enclave Phaser Template';
+		var notifBody = 'Created by the Enclave Games team.';
+		var notifImg = 'img/icons/icon-512.png';
 		var options = {
 			body: notifBody,
 			icon: notifImg
@@ -36,3 +22,15 @@ if(enablePWA) {
 		setTimeout(exampleNotification, 30000);
 	}
 }
+
+var gameConfig = {
+	scale: {
+		mode: Phaser.Scale.FIT,
+		autoCenter: Phaser.Scale.CENTER_BOTH,
+		width: 640,
+		height: 960
+	},
+	scene: [Boot, Preloader, MainMenu, Settings, Story, Game]
+}
+game = new Phaser.Game(gameConfig);
+window.focus();

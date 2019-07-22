@@ -1,38 +1,40 @@
 # Enclave Phaser Template
 
-Fully mobile responsive, portrait and landscape compatible template for **HTML5 games** written using the [Phaser](http://phaser.io/) game engine. See it online at: [http://enclavegames.github.io/Enclave-Phaser-Template/](http://enclavegames.github.io/Enclave-Phaser-Template/)
+Fully mobile responsive, portrait and landscape compatible template for **HTML5 games** written using the [Phaser](https://phaser.io/) 3 game engine. See it online at: [enclavegames.github.io/Enclave-Phaser-Template/](https://enclavegames.github.io/Enclave-Phaser-Template/)
 
-![Enclave Phaser Template](https://enclavegames.github.io/Enclave-Phaser-Template/img/enclave-phaser-template.png)
+![Enclave Phaser Template](https://enclavegames.github.io/Enclave-Phaser-Template/screens/EPT-MainMenu.png)
 
-It is my own point of view on building a structure for HTML5 games. If you think something can be done better feel free to send the pull request.
+It is my own point of view on building a structure for an HTML5 game. If you think something can be improved feel free to send the pull request.
 
 ### Features:
 
-- fully responsive
-- main menu with buttons
-- story and achievements screens
-- audio management
-- highscore management
-- paused and game over states
-- localStorage Phaser plugin
+- mobile-first, fully responsive (portrait and landscape)
+- boot, preloader, main menu, settings, story, and gameplay states
+- paused and game over screens
+- sound and music management
+- multilanguage support
+- keyboard shortcuts support
+- WebFont plugin using custom fonts
+- custom Button class
+- highscore via localStorage
 - tweens and animations
-- particle emitters
-- camera effects: shake, flash, fade
+- particle emitter
+- shake, flash, and fade camera effects
+- Progressive Web App support
+- Web Monetization enabled
 
-### PWA-ready:
+### Progressive Web App:
 
-The template now have Progressive Web App (PWA) support, turned off by default (see enablePWA variable in start.js file):
+Template have [Progressive Web App](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps#Core_PWA_guides) (PWA) support, turned off by default (see `enablePWA` variable in `start.js` file): manifest file for Add to Home Screen feature, Service Worker for offline use, and notifications template.
 
-- manifest file for Add to Home Screen feature
-- Service Worker for offline use
-- notifications template
+### Web Monetization:
+
+[Web Monetization](https://webmonetization.org/) support is turned on in the template. If you want to implement it you can replace the `monetization` meta tag in `index.html` with your own and determine if `document.monetization` is available in the browser to make changes in the source code.
 
 ### License:
 
-The license in use is CC BY-SA 3.0 - see License.txt for details.
+The license in use is **CC BY-SA 3.0** - see `License.txt` for details.
 
-### Beer time!
+### Kudos:
 
-[![Buy me a beer!](https://enclavegames.github.io/Enclave-Phaser-Template/img/banner-beer.png)](https://www.paypal.me/end3r)
-
-If you like what I'm doing and gonna use the template in your project, or just appreciate sharing the code in the open, you can say "thank you" by <a href="https://www.paypal.me/end3r">buying me a beer</a>. Cheers!
+If you like what I'm doing and gonna use the template in your project, or just appreciate sharing the code in the open, you can say _"thank you"_ by [buying me a beer](https://www.paypal.me/end3r). Coffee works fine too. Cheers!

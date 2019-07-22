@@ -1,68 +1,72 @@
-EPT.MainMenu = function(game) {};
-EPT.MainMenu.prototype = {
-	create: function() {
-		// this.add.sprite(0, 0, 'background');
-		var title = this.add.sprite(this.world.width*0.5, (this.world.height-100)*0.5, 'title');
-		title.anchor.set(0.5);
-
-		EPT.Storage = this.game.plugins.add(Phaser.Plugin.Storage);
+class MainMenu extends Phaser.Scene {
+    constructor() {
+        super('MainMenu');
+    }
+    create() {
+        this.add.sprite(0, 0, 'background').setOrigin(0,0);
 
 		EPT.Storage.initUnset('EPT-highscore', 0);
-		var highscore = EPT.Storage.get('EPT-highscore') || 0;
+		var highscore = EPT.Storage.get('EPT-highscore');
 
-		var buttonEnclave = this.add.button(20, 20, 'logo-enclave', this.clickEnclave, this);
-		var buttonBeer = this.add.button(25, 130, 'button-beer', this.clickBeer, this);
-		var buttonStart = this.add.button(this.world.width-20, this.world.height-20, 'button-start', this.clickStart, this, 1, 0, 2);
-		buttonStart.anchor.set(1);
+        var title = this.add.sprite(EPT.world.centerX, EPT.world.centerY-50, 'title');
+        title.setOrigin(0.5);
 
-		this.buttonAudio = this.add.button(this.world.width-20, 20, 'button-audio', this.clickAudio, this, 1, 0, 2);
-		this.buttonAudio.anchor.set(1,0);
+        this.input.keyboard.on('keydown', this.handleKey, this);
 
-		var buttonAchievements = this.add.button(20, this.world.height-20, 'button-achievements', this.clickAchievements, this, 1, 0, 2);
-		buttonAchievements.anchor.set(0,1);
+        this.tweens.add({targets: title, angle: title.angle-2, duration: 1000, ease: 'Sine.easeInOut' });
+        this.tweens.add({targets: title, angle: title.angle+4, duration: 2000, ease: 'Sine.easeInOut', yoyo: 1, loop: -1, delay: 1000 });
 
-		var fontHighscore = { font: "32px Arial", fill: "#000" };
-		var textHighscore = this.add.text(this.world.width*0.5, this.world.height-50, 'Highscore: '+highscore, fontHighscore);
-		textHighscore.anchor.set(0.5,1);
+        var buttonSettings = new Button(20, 20, 'button-settings', this.clickSettings, this);
+        buttonSettings.setOrigin(0, 0);
 
-		EPT._manageAudio('init',this);
-		// Turn the music off at the start:
-		EPT._manageAudio('off',this);
+        var buttonEnclave = new Button(20, EPT.world.height-40, 'logo-enclave', this.clickEnclave, this, 'static');
+        buttonEnclave.setOrigin(0, 1);
 
-		buttonStart.x = this.world.width+buttonStart.width+20;
-		this.add.tween(buttonStart).to({x: this.world.width-20}, 500, Phaser.Easing.Exponential.Out, true);
-		this.buttonAudio.y = -this.buttonAudio.height-20;
-		this.add.tween(this.buttonAudio).to({y: 20}, 500, Phaser.Easing.Exponential.Out, true);
+        var buttonStart = new Button(EPT.world.width-20, EPT.world.height-20, 'button-start', this.clickStart, this);
+        buttonStart.setOrigin(1, 1);
+
+		var fontHighscore = { font: '38px '+EPT.text['FONT'], fill: '#ffde00', stroke: '#000', strokeThickness: 5 };
+		var textHighscore = this.add.text(EPT.world.width-30, 60, EPT.text['menu-highscore']+highscore, fontHighscore);
+		textHighscore.setOrigin(1, 0);
+
+		buttonStart.x = EPT.world.width+buttonStart.width+20;
+        this.tweens.add({targets: buttonStart, x: EPT.world.width-20, duration: 500, ease: 'Back'});
+
 		buttonEnclave.x = -buttonEnclave.width-20;
-		this.add.tween(buttonEnclave).to({x: 20}, 500, Phaser.Easing.Exponential.Out, true);
-		buttonBeer.x = -buttonBeer.width-25;
-		this.add.tween(buttonBeer).to({x: 25}, 500, Phaser.Easing.Exponential.Out, true, 100);
-		buttonAchievements.y = this.world.height+buttonAchievements.height+20;
-		this.add.tween(buttonAchievements).to({y: this.world.height-20}, 500, Phaser.Easing.Exponential.Out, true);
+        this.tweens.add({targets: buttonEnclave, x: 20, duration: 500, ease: 'Back'});
 
-		this.camera.flash(0x000000, 500, false);
-	},
-	clickAudio: function() {
-		EPT._playAudio('click');
-		EPT._manageAudio('switch',this);
-	},
-	clickEnclave: function() {
-		EPT._playAudio('click');
-		window.top.location.href = 'http://enclavegames.com/';
-	},
-	clickBeer: function() {
-		EPT._playAudio('click');
-		window.top.location.href = 'https://www.paypal.me/end3r';
-	},
-	clickStart: function() {
-		EPT._playAudio('click');
-		this.camera.fade(0x000000, 200, false);
-		this.time.events.add(200, function() {
-			this.game.state.start('Story');
-		}, this);
-	},
-	clickAchievements: function() {
-		EPT._playAudio('click');
-		this.game.state.start('Achievements');
-	}
-};
+        buttonSettings.y = -buttonSettings.height-20;
+        this.tweens.add({targets: buttonSettings, y: 20, duration: 500, ease: 'Back'});
+
+        textHighscore.y = -textHighscore.height-30;
+        this.tweens.add({targets: textHighscore, y: 40, duration: 500, delay: 100, ease: 'Back'});
+
+        this.cameras.main.fadeIn(250);
+    }
+    handleKey(e) {
+        switch(e.code) {
+            case 'KeyS': {
+                this.clickSettings();
+                break;
+            }
+            case 'Enter': {
+                this.clickStart();
+                break;
+            }
+            default: {}
+        }
+    }
+    clickEnclave() {
+        console.log('Enclave clicked!');
+        EPT.Sfx.play('click');
+        window.top.location.href = 'https://enclavegames.com/';
+    }
+    clickSettings() {
+        EPT.Sfx.play('click');
+        EPT.fadeOutScene('Settings', this);
+    }
+    clickStart() {
+        EPT.Sfx.play('click');
+        EPT.fadeOutScene('Story', this);
+    }
+}
