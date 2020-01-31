@@ -35,9 +35,25 @@ class Settings extends Phaser.Scene {
         this.bannerBeer = new Button(EPT.world.centerX, EPT.world.height-60, 'banner-beer', this.clickBeer, this, 'static');
 		this.bannerBeer.setOrigin(0.5, 1);
 		
-		if(document.monetization && document.monetization.state === 'started') {
-			this.bannerBeer.destroy();
-			this.add.text(EPT.world.centerX, EPT.world.height-60, 'Thank you\nfor supporting EPT!', fontSubtitle).setOrigin(0.5, 1);
+		// if(document.monetization && document.monetization.state === 'started') {
+		// 	this.bannerBeer.destroy();
+		// 	this.add.text(EPT.world.centerX, EPT.world.height-60, 'Thank you\nfor supporting EPT!', fontSubtitle).setOrigin(0.5, 1);
+		// }
+
+		if(document.monetization) {
+			if(document.monetization.state === 'started') {
+				if(this.bannerBeer) {
+					this.bannerBeer.destroy();
+				}
+				this.add.text(EPT.world.centerX, EPT.world.height-60, 'Thank you\nfor supporting EPT\nwith Web Monetization!', fontSubtitle).setOrigin(0.5, 1);
+			} else {
+				document.monetization.addEventListener('monetizationstart', function(event) {
+					if(this.bannerBeer) {
+						this.bannerBeer.destroy();
+					}
+					this.add.text(EPT.world.centerX, EPT.world.height-60, 'Thank you\nfor supporting EPT\nwith Web Monetization!', fontSubtitle).setOrigin(0.5, 1);
+				}, this);
+			}
 		}
 
 		EPT.Sfx.update('sound', this.buttonSound, this.textSound);
@@ -204,7 +220,9 @@ class Settings extends Phaser.Scene {
 		this.buttonSound.input.enabled = false;
 		this.buttonMusic.input.enabled = false;
 		this.buttonCredits.input.enabled = false;
-		this.bannerBeer.input.enabled = false;
+		if(this.bannerBeer && this.bannerBeer.input) {
+			this.bannerBeer.input.enabled = false;
+		}
 		this.screenName = 'credits';
 	}
     clickBeer() {
@@ -220,7 +238,9 @@ class Settings extends Phaser.Scene {
 		this.buttonSound.input.enabled = false;
 		this.buttonMusic.input.enabled = false;
 		this.buttonCredits.input.enabled = false;
-		this.bannerBeer.input.enabled = false;
+		if(this.bannerBeer && this.bannerBeer.input) {
+			this.bannerBeer.input.enabled = false;
+		}
 		this.screenName = 'keyboard';
 	}
 	clickBack(name) {
@@ -230,7 +250,9 @@ class Settings extends Phaser.Scene {
 			this.buttonSound.input.enabled = true;
 			this.buttonMusic.input.enabled = true;
 			this.buttonCredits.input.enabled = true;
-			this.bannerBeer.input.enabled = true;
+			if(this.bannerBeer && this.bannerBeer.input) {
+				this.bannerBeer.input.enabled = true;
+			}
 			if(name == 'credits') {
 				this.tweens.add({targets: this.containerCredits, y: EPT.world.height, duration: 750, ease: 'Cubic.easeIn' });
 			}
