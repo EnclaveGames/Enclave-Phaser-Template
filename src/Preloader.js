@@ -18,32 +18,12 @@ class Preloader extends Phaser.Scene {
 
 		var resources = {
 			'image': [
-				['title', 'img/title.png'],
-				['clickme', 'img/clickme.png'],
-				['overlay', 'img/overlay.png'],
-				['button-beer', 'img/button-beer.png'],
-				['banner-beer', 'img/banner-beer.png'],
-				['particle', 'img/particle.png']
+				['title', 'img/title.png']
 			],
 			'spritesheet': [
 				['button-start', 'img/button-start.png', {frameWidth:180,frameHeight:180}],
-				['button-continue', 'img/button-continue.png', {frameWidth:180,frameHeight:180}],
-				['button-mainmenu', 'img/button-mainmenu.png', {frameWidth:180,frameHeight:180}],
-				['button-restart', 'img/button-tryagain.png', {frameWidth:180,frameHeight:180}],
-				['button-achievements', 'img/button-achievements.png', {frameWidth:110,frameHeight:110}],
 				['button-settings', 'img/button-settings.png', {frameWidth:80,frameHeight:80}],
-				['button-home', 'img/button-home.png', {frameWidth:80,frameHeight:80}],
-				['button-pause', 'img/button-pause.png', {frameWidth:80,frameHeight:80}],
-				['button-credits', 'img/button-credits.png', {frameWidth:80,frameHeight:80}],
-				['button-sound-on', 'img/button-sound-on.png', {frameWidth:80,frameHeight:80}],
-				['button-sound-off', 'img/button-sound-off.png', {frameWidth:80,frameHeight:80}],
-				['button-music-on', 'img/button-music-on.png', {frameWidth:80,frameHeight:80}],
-				['button-music-off', 'img/button-music-off.png', {frameWidth:80,frameHeight:80}],
-				['button-back', 'img/button-back.png', {frameWidth:70,frameHeight:70}]
-			],
-			'audio': [
-				['sound-click', ['sfx/audio-button.m4a','sfx/audio-button.mp3','sfx/audio-button.ogg']],
-				['music-theme', ['sfx/music-bitsnbites-liver.m4a','sfx/music-bitsnbites-liver.mp3','sfx/music-bitsnbites-liver.ogg']]
+				['loader', 'img/loader.png', {frameWidth:45,frameHeight:45}]
 			]
 		};
 		for(var method in resources) {
@@ -54,8 +34,6 @@ class Preloader extends Phaser.Scene {
 		};
     }
     create() {
-		EPT.Sfx.manage('music', 'init', this);
-		EPT.Sfx.manage('sound', 'init', this);
 		EPT.fadeOutScene('MainMenu', this);
 	}
 }

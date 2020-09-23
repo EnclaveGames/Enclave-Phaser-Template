@@ -22,6 +22,7 @@ It is my own point of view on building a structure for an HTML5 game. If you thi
 - shake, flash, and fade camera effects
 - Progressive Web App support
 - Web Monetization enabled
+- Progressive Loading
 
 ### Progressive Web App:
 
@@ -30,6 +31,10 @@ Template have [Progressive Web App](https://developer.mozilla.org/en-US/docs/Web
 ### Web Monetization:
 
 [Web Monetization](https://webmonetization.org/) support is turned on in the template. If you want to implement it you can replace the `monetization` meta tag in `index.html` with your own and determine if `document.monetization` is available in the browser to make changes in the source code.
+
+### Progressive Loading:
+
+It's a Phaser-specific Progressive Loading approach, which impoves the initial load time by deferring "anything that's not main menu items" to load in the background as soon as main menu actually appears.
 
 ### License:
 
