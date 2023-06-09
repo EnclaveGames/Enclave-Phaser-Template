@@ -212,18 +212,17 @@ class Game extends Phaser.Scene {
 		EPT.fadeOutScene('MainMenu', this);
 	}
 	gameoverScoreTween() {
+		var self = this;
 		this.screenGameoverScore.setText(EPT.text['gameplay-score']+'0');
 		if(this._score) {
 			this.pointsTween = this.tweens.addCounter({
 				from: 0, to: this._score, duration: 2000, delay: 250,
 				onUpdateScope: this, onCompleteScope: this,
 				onUpdate: function(){
-					this.screenGameoverScore.setText(EPT.text['gameplay-score']+Math.floor(this.pointsTween.getValue()));
+					self.screenGameoverScore.setText(EPT.text['gameplay-score']+Math.floor(self.pointsTween.getValue()));
 				},
 				onComplete: function(){
-					var emitter = this.add.particles('particle').createEmitter({
-						x: this.screenGameoverScore.x+30,
-						y: this.screenGameoverScore.y,
+					var emitter = self.add.particles(self.screenGameoverScore.x+30, self.screenGameoverScore.y, 'particle', {
 						speed: { min: -600, max: 600 },
 						angle: { min: 0, max: 360 },
 						scale: { start: 0.5, end: 3 },
