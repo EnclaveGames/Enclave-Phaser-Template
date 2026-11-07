@@ -6,10 +6,6 @@ Fully mobile responsive, portrait and landscape compatible template for **HTML5 
 
 It is my own point of view on building a structure for an HTML5 game. If you think something can be improved feel free to send the pull request.
 
-### GitHub Pages deployment:
-
-In **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions** instead of the removed `gh-pages` branch. The Pages workflow publishes the static files directly from `main` on each push, or can be run manually from the Actions tab. No build step is required.
-
 ### Features:
 
 - mobile-first, fully responsive (portrait and landscape)
