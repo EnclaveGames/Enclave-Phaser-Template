@@ -1,10 +1,10 @@
 # Enclave Phaser Template
 
-Fully mobile responsive, portrait and landscape compatible template for **HTML5 games** written using the [Phaser](https://phaser.io/) 4 game engine. See it online at: [enclavegames.github.io/Enclave-Phaser-Template/](https://enclavegames.github.io/Enclave-Phaser-Template/)
+Fully mobile responsive, portrait and landscape compatible template for **web games** written using the [Phaser](https://phaser.io/) 4 game engine. See it online at: [enclavegames.github.io/Enclave-Phaser-Template/](https://enclavegames.github.io/Enclave-Phaser-Template/)
 
 ![Enclave Phaser Template](https://enclavegames.github.io/Enclave-Phaser-Template/screens/EPT-MainMenu.png)
 
-It is my own point of view on building a structure for an HTML5 game. If you think something can be improved feel free to send the pull request.
+It is my own point of view on building a structure for a web game. If you think something can be improved feel free to send the pull request.
 
 ### Features:
 
